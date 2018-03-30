@@ -133,4 +133,10 @@ cat3.products.create!({
 })
 
 
+Review.create(product_id: 12, user_id: 1, description:"This was pretty shit TBH", rating:2)
+Review.create(product_id: 12, user_id: 1, description:"Broke instantly ermaaaahhgerrddd", rating:1)
+Review.create(product_id: 3, user_id: 1, description:"Bought 4 my gf irl", rating:5)
+Review.create(product_id: 1, user_id: 1, description:"BUYING GF for 300k", rating:5)
+
+
 puts "DONE!"

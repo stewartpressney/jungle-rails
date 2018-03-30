@@ -27,5 +27,24 @@
     </div>
 
   </article>
+    <div style ="margin-top:20px;">
+      <%= form_for @review, url: product_reviews_path(@product) do |r| %>
+        <%= r.select :rating, [1,2,3,4,5] %>
+        <%= r.text_area :description %> <br/>
+        <%= r.submit %>
+    </div>
+<% end %>
+
+
+  <% @product.reviews.reverse_each do |review_item| %>
+    <%= render :partial => "products/reviewitem", :locals => {:review_item => review_item, :current_user => @current_user} %>
+
+    <% if current_user && current_user.id == review_item.user_id %>
+
+      <%= link_to fa_icon('trash'), product_review_path(review_item.product_id, review_item), class: 'btn btn-sm btn-danger', method: :delete, data: { confirm: "Are you sure?" } %>
+
+    <% end %>
+
+  <% end %>
 
 </section>

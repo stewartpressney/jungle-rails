@@ -1,5 +1,7 @@
 <section class="admin-products-new">
 
+if (Session["LoggedIn"]) !=null)
+
   <header class="page-header">
     <h1>Admin &raquo; New Category</h1>
   </header>
@@ -28,11 +30,15 @@
           <%= form.text_field :name, class: 'form-control' %>
         </div>
 
-
-
         <%= form.submit 'Create Category', class: 'btn btn-primary' %>
       <% end %>
     </div>
   </div>
+
+    <% else %>
+
+  <p>You are not an admin</p>
+
+  <% end %>
 
 </section>

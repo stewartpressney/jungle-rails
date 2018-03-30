@@ -4,6 +4,17 @@
     <h1>My Cart</h1>
   </header>
 
+<% if cart.empty? %>
+
+
+        <div class="jumbotron">
+          <h1>Your Cart is Empty</h1>
+        </div>
+
+ <% else %>
+
+
+
   <div class="panel panel-default items">
     <table class="table table-bordered">
       <thead>
@@ -33,6 +44,7 @@
     </table>
   </div>
 
+
   <div class="row">
     <div class="col-xs-12">
       <%= form_tag orders_path do %>
@@ -47,7 +59,9 @@
           data-currency="cad">
         </script>
       <% end %>
+
     </div>
   </div>
 
+<% end %>
 </section>
